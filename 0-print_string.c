@@ -9,10 +9,10 @@ int _printf(const char *format, ...)
 	int result = 0;
 	va_list convert;
 
-	va_start(convert, format);
 	if (format == NULL)
 		return (-1);
-	while (*format != '\0')
+	va_start(convert, format);
+	while (*format)
 	{
 		if (*format != '%')
 		{
@@ -27,13 +27,13 @@ int _printf(const char *format, ...)
 			{
 				write(1, format, 1);
 				result++; }
-			if (*format == 'c')
+			else if (*format == 'c')
 			{
 				char c = va_arg(convert, int);
 
 				write(1, &c, 1);
 				result++; }
-			if (*format == 's')
+			else if (*format == 's')
 			{
 				char *string = va_arg(convert, char*);
 				int string_length = 0;
