@@ -9,9 +9,9 @@ int _printf(const char *format, ...)
 	int result = 0;
 	va_list convert;
 
+	va_start(convert, format);
 	if (format == NULL)
 		return (-1);
-	va_start(convert, format);
 	while (*format)
 	{
 		if (*format != '%')
@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 				result++; }
 		else
 		{
+			format++;
 			if (*format == '\0')
 			break;
 			if (*format == '%')
@@ -38,12 +39,10 @@ int _printf(const char *format, ...)
 				int string_length = 0;
 
 				while (string[string_length] != '\0')
-					string_lenght++;
+					string_length++;
 				write(1, string, string_length);
 				result += string_length; }
 		}
 	format++;
-	va_end(convert);
-	}
-	return (result);
-}
+	va_end(convert); }
+	return (result); }
