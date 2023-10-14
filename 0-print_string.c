@@ -22,10 +22,9 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-			break;
+				break;
 			if (*format == '%')
-			{
-				write(1, format, 1);
+			{ write(1, format, 1);
 				result++; }
 			else if (*format == 'c')
 			{
@@ -34,14 +33,16 @@ int _printf(const char *format, ...)
 				write(1, &c, 1);
 				result++; }
 			else if (*format == 's')
-			{
-				char *string = va_arg(convert, char*);
+			{ 	char *string = va_arg(convert, char*);
 				int string_length = 0;
 
 				while (string[string_length] != '\0')
 					string_length++;
 				write(1, string, string_length);
 				result += string_length; }
+			else
+			{ write(1, format, -1, 2);
+				result += 2; }
 		}
 	format++;
 	}
