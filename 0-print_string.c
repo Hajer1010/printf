@@ -9,9 +9,9 @@ int _printf(const char *format, ...)
 	int result = 0, n = 0;
 	va_list convert;
 
-	va_start(convert, format);
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
+	va_start(convert, format);
 	while (format[n] != '\0')
 	{
 		if (format[n] != '%')
@@ -23,19 +23,18 @@ int _printf(const char *format, ...)
 			{_putchar('%');
 				n++;
 			}
-			if (format[n + 1] == 'c')
+			else if (format[n + 1] == 'c')
 			{_putchar(va_arg(convert, int));
 				n++;
 			}
-			if (format[n + 1] == 's')
-			{
-				char *st = va_arg(convert, char *);
+			else if (format[n + 1] == 's')
+			{char *st = va_arg(convert, char *);
 
 				write(1, st, strlen(st));
 				n++;
 				result += strlen(st); }
 		}
-		result += 1;
+		result++;
 		format++;
 	}
 	va_end(convert);
