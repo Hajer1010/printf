@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				result++; }
 			else if (*format == 's')
 			{
-				char size = _puts(va_arg(convert, char *));
+				int size = _puts(va_arg(convert, char *));
 
 				size++;
 				result += (size - 1); }
