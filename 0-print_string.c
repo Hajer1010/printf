@@ -37,4 +37,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(convert);
-	return (result); }
+	return (result);
+}
