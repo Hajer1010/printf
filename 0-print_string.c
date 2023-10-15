@@ -16,26 +16,28 @@ int _printf(const char *format, ...)
 	{
 		if (format[n] != '%')
 		{_putchar(format[n]);
+			result++;
 		}
 		else
 		{
 			if (format[n + 1] == '%')
 			{_putchar('%');
+				result++;
 				n++;
 			}
 			else if (format[n + 1] == 'c')
 			{_putchar(va_arg(convert, int));
+				result++;
 				n++;
 			}
 			else if (format[n + 1] == 's')
 			{char *st = va_arg(convert, char *);
 
 				write(1, st, strlen(st));
-				n++;
-				result += strlen(st); }
+				result += strlen(st);
+				n++; }
 		}
-		result++;
-		format++;
+		n++;
 	}
 	va_end(convert);
 	return (result);
