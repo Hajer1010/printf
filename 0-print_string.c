@@ -15,23 +15,23 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format != '%')
-		{
-			_putchar(*format)
-		 }
+			_putchar(*format);
 		else
 		{
 			format++;
 			if (*format == '\0')
 				break;
 			if (*format == '%')
-			{ _putchar('%');
-		       result++;}
+			{ _putchar(*format);
+		       result++; }
 			else if (*format == 'c')
 			{
 				_putchar(va_arg(convert, int);
-				result++;}
+				result++; }
 			else if (*format == 's')
-			{ 	size  = va_arg(convert, char *);
+			{
+				char *size = va_arg(convert, char *);
+
 				size++;
 				result += (size - 1); }
 			else
@@ -39,6 +39,6 @@ int _printf(const char *format, ...)
 				result += 1 }
 		}
 	format++;
-	}
 	va_end(convert);
+	}
 	return (result); }
