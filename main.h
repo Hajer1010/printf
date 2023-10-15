@@ -11,6 +11,6 @@
 int _puts(char *st);
 int _printf(const char *format, ...);
 int _putchar(char c);
-int print_numers(va_list count, int *result);
+int print_di(va_list convert, int *result);
 
 #endif

@@ -24,6 +24,10 @@ int _printf(const char *format, ...)
 			{	_putchar('%');
 				result++;
 				n++; }
+			else if (format[n + 1] == 'd' || format[n + 1] == 'i')
+			{	print_di(convert, &result);
+				result++;
+				n++; }
 			else if (format[n + 1] == 'c')
 			{	_putchar(va_arg(convert, int));
 				result++;
