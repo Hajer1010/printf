@@ -13,19 +13,16 @@ int _printf(const char *format, ...)
 	while (format[n] != '\0')
 	{
 		if (format[n] != '%')
-		{
-			_putchar(format[n]);
+		{_putchar(format[n]);
 		}
 		else
 		{
 			if (format[n + 1] == '%')
-			{
-				_putchar('%');
+			{_putchar('%');
 				n++;
 			}
 			if (format[n + 1] == 'c')
-			{
-				_putchar(va_arg(convert, int));
+			{_putchar(va_arg(convert, int));
 				n++;
 			}
 			if (format[n + 1] == 's')
