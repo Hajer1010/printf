@@ -34,7 +34,8 @@ int _printf(const char *format, ...)
 				write(1, st, strlen(st));
 				result += strlen(st);
 				n++; }
-		}	n++;
+		}	result += 1;
+		n++;
 	}	va_end(convert);
 		return (result);
 }
