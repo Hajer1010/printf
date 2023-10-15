@@ -6,20 +6,22 @@
  */
 int _puts(char *st)
 {
-	int x = 0, y = 0, z;
+	int x = 0;
 	char *p = "(null)";
 
 	if (!st)
 	{
-		for (z = 0; z < 6; z++)
-			_putchar(p[z]);
-		return (z);
+		while (p[x] != '\0')
+		{
+			_putchar(p[x]);
+			x++;
+		}
+		return (6);
 	}
 	while (st[x] != '\0')
 	{
 		_putchar(st[x]);
-		y++;
 		x++;
 	}
-	return (y);
+	return ((int)(x));
 }

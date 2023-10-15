@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(convert, format);
-	while (*format)
+	while (*format != '\0')
 	{
 		if (*format != '%')
 			_putchar(*format);
@@ -35,10 +35,11 @@ int _printf(const char *format, ...)
 				size++;
 				result += (size - 1); }
 			else
-			{ write(1, format, -1, 2);
-				result += 1 }
+			{ _putchar ('%'));
+				_putchar(*format)
+				result += 2; }
 		}
-	format++;
-	va_end(convert);
+		format++;
 	}
+	va_end(convert);
 	return (result); }
