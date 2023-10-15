@@ -13,24 +13,29 @@ int _printf(const char *format, ...)
 	while (format[n] != '\0')
 	{
 		if (format[n] != '%')
+		{
 			_putchar(format[n]);
-		else if (format[n] == '\0')
-			break;
-		else if (format[n + 1] == '%')
-			{ _putchar('%');
-		        }
-		else if (format[n + 1] == 'c')
+		}
+		else
+		{
+			if (format[n + 1] == '%')
+			{
+				_putchar('%');
+				n++;
+			}
+			if (format[n + 1] == 'c')
 			{
 				_putchar(va_arg(convert, int));
 				n++;
-			 }
-		else if (format[n + 1] == 's')
+			}
+			if (format[n + 1] == 's')
 			{
 				char *st = va_arg(convert, char *);
 
 				write(1, st, strlen(st));
 				n++;
 				result += strlen(st); }
+		}
 		result += 1;
 		format++;
 	}
