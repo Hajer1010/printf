@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 
 				write(1, st, strlen(st));
 				result += strlen(st);
-			}	n++;
+				n++; }
 		}	n++;
 	}	va_end(convert);
 		return (result);
