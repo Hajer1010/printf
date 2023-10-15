@@ -26,18 +26,14 @@ int _printf(const char *format, ...)
 		       result++; }
 			else if (*format == 'c')
 			{
-				_putchar(va_arg(convert, int);
+				_putchar(va_arg(convert, int));
 				result++; }
 			else if (*format == 's')
 			{
-				char *size = va_arg(convert, char *);
+				char size = _puts(va_arg(convert, char *));
 
 				size++;
 				result += (size - 1); }
-			else
-			{ _putchar ('%'));
-				_putchar(*format)
-				result += 2; }
 		}
 		format++;
 	}
