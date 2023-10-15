@@ -16,33 +16,27 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			write(1, format, 1)
-				result++; }
+			_putchar(*format)
+		 }
 		else
 		{
 			format++;
 			if (*format == '\0')
 				break;
 			if (*format == '%')
-			{ write(1, format, 1);
-				result++; }
+			{ _putchar('%');
+		       result++;}
 			else if (*format == 'c')
 			{
-				char c = va_arg(convert, int);
-
-				write(1, &c, 1);
-				result++; }
+				_putchar(va_arg(convert, int);
+				result++;}
 			else if (*format == 's')
-			{ 	char *string = va_arg(convert, char*);
-				int string_length = 0;
-
-				while (string[string_length] != '\0')
-					string_length++;
-				write(1, string, string_length);
-				result += string_length; }
+			{ 	size  = va_arg(convert, char *);
+				size++;
+				result += (size - 1); }
 			else
 			{ write(1, format, -1, 2);
-				result += 2; }
+				result += 1 }
 		}
 	format++;
 	}
