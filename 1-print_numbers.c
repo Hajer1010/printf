@@ -40,7 +40,7 @@ int print_numbers(va_list count, int *result)
  * @format: argument for passing
  * Return: value
 */
-int _printf(const char *format, ...)
+int _printf_int(const char *format, ...)
 {
 	va_list num;
 	int value = 0;
