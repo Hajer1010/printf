@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	int result = 0;
 	va_list convert;
 
-	if (format == NULL)
+	if (*format == '\0')
 		return (-1);
 	va_start(convert, format);
 	while (*format != '\0')
@@ -30,10 +30,10 @@ int _printf(const char *format, ...)
 				result++; }
 			else if (*format == 's')
 			{
-				int size = _puts(va_arg(convert, char *));
+				char *st = va_arg(convert, char *);
 
-				size++;
-				result += (size - 1); }
+				write(1, st, strlen(st));
+				result += strlen(st); }
 		}
 		format++;
 	}
