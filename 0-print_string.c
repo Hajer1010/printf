@@ -6,35 +6,32 @@
  */
 int _printf(const char *format, ...)
 {
-	int result = 0;
+	int result = 0, n = 0;
 	va_list convert;
 
-	if (*format == '\0')
-		return (-1);
 	va_start(convert, format);
-	while (*format != '\0')
+	while (format[n] != '\0')
 	{
-		if (*format != '%')
-			_putchar(*format);
-		else
-		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == '%')
-			{ _putchar(*format);
-		       result++; }
-			else if (*format == 'c')
+		if (format[n] != '%')
+			_putchar(format[n]);
+		else if (format[n] == '\0')
+			break;
+		else if (format[n + 1] == '%')
+			{ _putchar('%');
+		        }
+		else if (format[n + 1] == 'c')
 			{
 				_putchar(va_arg(convert, int));
-				result++; }
-			else if (*format == 's')
+				n++;
+			 }
+		else if (format[n + 1] == 's')
 			{
 				char *st = va_arg(convert, char *);
 
 				write(1, st, strlen(st));
+				n++;
 				result += strlen(st); }
-		}
+		result += 1;
 		format++;
 	}
 	va_end(convert);
