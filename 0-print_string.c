@@ -15,30 +15,26 @@ int _printf(const char *format, ...)
 	while (format[n] != '\0')
 	{
 		if (format[n] != '%')
-		{_putchar(format[n]);
+		{	_putchar(format[n]);
 			result++;
 		}
 		else
 		{
 			if (format[n + 1] == '%')
-			{_putchar('%');
+			{	_putchar('%');
 				result++;
-				n++;
-			}
+				n++; }
 			else if (format[n + 1] == 'c')
-			{_putchar(va_arg(convert, int));
+			{	_putchar(va_arg(convert, int));
 				result++;
-				n++;
-			}
+				n++; }
 			else if (format[n + 1] == 's')
-			{char *st = va_arg(convert, char *);
+			{	char *st = va_arg(convert, char *);
 
 				write(1, st, strlen(st));
 				result += strlen(st);
 				n++; }
-		}
-		n++;
-	}
-	va_end(convert);
-	return (result);
+		}	n++;
+	}	va_end(convert);
+		return (result);
 }
