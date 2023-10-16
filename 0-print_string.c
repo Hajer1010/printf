@@ -27,9 +27,7 @@ int _printf(const char *format, ...)
 				int l = strlen(s);
 
 				for (i = l - 1; i >= 0; i--)
-				{	write(1, &s[i], l);
-			       		result += l;
-				}
+				{	write(1, &s[i], l); }
 				n++; } else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	result += print_di(convert, &result);
 				n++; }	else if (format[n + 1] == 'b')
