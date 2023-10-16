@@ -28,18 +28,20 @@ int _printf(const char *format, ...)
 				result++;
 				n++; }	else if (format[n + 1] == 'b')
 			{	unsigned int num = va_arg(convert, unsigned int);
-				result += handle_b(num);
-			n++; }
-			else if (format[n + 1] == 'c')
-			{	_putchar(va_arg(convert, int));
+
+				 result += handle_b(num);
+			n++; }	else if (format[n + 1] == 'c')
+			{	_putchar((char)va_arg(convert, int));
 				result++;
 				n++; }	else if (format[n + 1] == 's')
 			{	char *str = va_arg(convert, char*);
 
 				write(1, str, _strlen(str));
 				result += _strlen(str);
+				_puts(str);
 				n++; }
-		}	n++;
-	}	va_end(convert);
-		return (result);
-		_putchar('\n'); }
+			}	n++;
+		}
+		va_end(convert);
+		_putchar('\n');
+		return (result); }
