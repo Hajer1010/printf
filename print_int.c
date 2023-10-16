@@ -10,8 +10,8 @@ int write_number(unsigned int);
 int print_di(va_list convert, int *result)
 {
 	int m = va_arg(convert, int);
-	int len = 0;
 	int rep = m;
+	int len = 0;
 	int po = 1;
 	int i;
 
@@ -19,19 +19,25 @@ int print_di(va_list convert, int *result)
 	{	(*result) += _putchar('0');
 	}
 	if (m < 0)
-	{	(*result) += _putchar('-');
-		m = -m; }
+	{	_putchar('-');
+		m = -m;
+		(*result) += m; }
 	while (rep != 0)
 	{	rep = rep / 10;
+		(*result) += rep;
 		len++; }
 	for (i = 1; i < len; i++)
-	{ po *= 10; }
+	{	po *= 10;
+		(*result) += po; }
 	while (len > 0)
 	{	int di = m / po;
 
-		(*result) += _putchar(di + '0');
+		_putchar(di + '0');
+		(*result) += di;
 		m = m % po;
+		(*result) += m;
 		po = po / 10;
+		(*result) += po;
 		len--; }
 	return (*result);
 }
