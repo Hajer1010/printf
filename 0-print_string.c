@@ -30,8 +30,9 @@ int _printf(const char *format, ...)
 
 				 result += handle_b(num);
 			n++; }	else if (format[n + 1] == 'c')
-			{	_putchar(va_arg(convert, int));
-				result++;
+			{	int c = (char)va_arg(convert, int);
+
+				result += _putchar(c);
 				n++; }	else if (format[n + 1] == 's')
 			{	char *str = va_arg(convert, char *);
 
