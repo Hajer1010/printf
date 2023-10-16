@@ -9,33 +9,34 @@
 
 int print_di(va_list convert, int *result)
 {
-	int l = va_arg(convert, int);
-	int ln = 0, i, di;
-	int r = l;
+	int m = va_arg(convert, int);
+	int len = 0;
+	int  rep = m;
 	int po = 1;
+	int i;
 
-	if (l < 0)
+	if (m < 0)
 	{
 		_putchar('-');
 		(*result)++;
-		l = -l;
+		m = -m;
 	}
-	while (r != 0)
+	while (rep != 0)
 	{
-		r = r / 10;
-		ln++;
+		rep = rep / 10;
+		len++;
 	}
-	for (i = 1; i < ln; i++)
+	for ( i = 1; i < len; i++)
 	{
 		po *= 10;
 	}
-	while (ln > 0)
+	while (len > 0)
 	{
-		di = l / po;
+		int di = m / po;
 		_putchar(di + '0');
 		(*result)++;
-		l = l % po;
-		ln--;
+		m = m % po;
+		len--;
 	}
 	return (*result);
 }
