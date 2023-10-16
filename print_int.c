@@ -17,11 +17,9 @@ int print_di(va_list convert, int *result)
 
 	if (m == 0)
 	{	_putchar('0');
-		(*result)++;
-		return (*result); }
+	}
 	if (m < 0)
 	{	_putchar('-');
-		(*result)++;
 		m = -m; }
 	while (rep != 0)
 	{	rep = rep / 10;
@@ -32,7 +30,6 @@ int print_di(va_list convert, int *result)
 	{	int di = m / po;
 
 		_putchar(di + '0');
-		(*result)++;
 		m = m % po;
 		po = po / 10;
 		len--; }
