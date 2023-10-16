@@ -22,19 +22,16 @@ int _printf(const char *format, ...)
 			if (format[n + 1] == '%')
 			{	_putchar('%');
 				result++;
-				n++; }
-			else if (format[n + 1] == 'd' || format[n + 1] == 'i')
+				n++; }	else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	print_di(convert, &result);
 				result++;
-				n++; }
-			else if (*format == 'b')
+				n++; }	else if (*format == 'b')
 			{	int num = va_arg(convert, int);
 				result += handle_b(num, 2); }
 			else if (format[n + 1] == 'c')
 			{	_putchar(va_arg(convert, int));
 				result++;
-				n++; }
-			else if (format[n + 1] == 's')
+				n++; }	else if (format[n + 1] == 's')
 			{	char *st = va_arg(convert, char *);
 
 				write(1, st, strlen(st));
