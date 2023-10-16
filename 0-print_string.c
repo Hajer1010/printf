@@ -36,11 +36,10 @@ int _printf(const char *format, ...)
 				n++; }	else if (format[n + 1] == 's')
 			{	char *str = va_arg(convert, char*);
 
-				result += _strlen(str);
 				_puts(str);
+				result++;
 				n++; }
 			}	n++;
 		}
 		va_end(convert);
-		_putchar('\n');
 		return (result); }
