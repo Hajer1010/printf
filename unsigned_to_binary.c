@@ -8,10 +8,14 @@
 
 int handle_b(unsigned int num)
 {
-	if (num > 1)
+	int s = 0;
+
+	if (num / 2)
 	{
-		handle_b(num / 2);
+		s += handle_b(num / 2);
 	}
 	_putchar('0' + num % 2);
-	return (num);
+	s++;
+
+	return (s);
 }
