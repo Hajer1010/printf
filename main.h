@@ -12,6 +12,6 @@ int _puts(char *st);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_di(va_list convert, int *result);
-int handle_b(unsigned num);
+int handle_b(unsigned int num);
 
 #endif
