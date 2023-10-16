@@ -27,6 +27,9 @@ int _printf(const char *format, ...)
 			{	print_di(convert, &result);
 				result++;
 				n++; }
+			else if (*format == 'b')
+			{	int num = va_arg(convert, int);
+				result += handle_b(num, 2); }
 			else if (format[n + 1] == 'c')
 			{	_putchar(va_arg(convert, int));
 				result++;
