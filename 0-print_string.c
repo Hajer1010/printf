@@ -24,9 +24,12 @@ int _printf(const char *format, ...)
 				n++; }
 			else if (format[n + 1] == 'r')
 			{	char *s = va_arg(convert, char *);
+				int l = strlen(s);
 
 				for (i = l - 1; i >= 0; i--)
-				{	result += _puts(s); }
+				{	write(1, &s[i], l);
+			       		result += l;
+				}
 				n++; } else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	result += print_di(convert, &result);
 				n++; }	else if (format[n + 1] == 'b')
