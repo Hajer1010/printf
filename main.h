@@ -13,5 +13,6 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int print_di(va_list convert, int *result);
 int handle_b(unsigned int num);
+int _strlen(char *s);
 
 #endif

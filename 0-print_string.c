@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 			{	char *st = va_arg(convert, char *);
 
 				_puts(st);
-				result += strlen(st);
+				result += _strlen(st);
 				n++; }
 		}	n++;
 	}	va_end(convert);
