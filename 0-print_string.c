@@ -38,7 +38,8 @@ int _printf(const char *format, ...)
 				result += _puts(str);
 				n++; }
 			else
-			{	_putchar(format[n]);
+			{	_putchar('%');
+				_putchar(format[n]);
 				result += 2; }
 			}	n++;
 		}
