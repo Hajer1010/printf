@@ -25,12 +25,12 @@ int print_di(va_list convert, int *result)
 		r = r / 10;
 		ln++;
 	}
+	for (i = 1; i < ln; i++)
+	{
+		po *= 10;
+	}
 	while (ln > 0)
 	{
-		for (i = 1; i < ln; i++)
-		{
-			po *= 10;
-		}
 		di = l / po;
 		_putchar(di + '0');
 		(*result)++;
