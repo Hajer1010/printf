@@ -37,5 +37,5 @@ int print_di(va_list convert, int *result)
 		l = l % po;
 		ln--;
 	}
-	return (0);
+	return (*result);
 }
