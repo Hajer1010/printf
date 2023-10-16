@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list convert;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
-		return (1);
+		return (-1);
 	va_start(convert, format);
 	while (format[n] != '\0')
 	{
