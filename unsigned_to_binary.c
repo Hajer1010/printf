@@ -3,8 +3,7 @@
 /**
  * handle_b - unsigned to binary
  * @num: the first integer
- * @b: the second integer
- * Return: count
+ * Return: num
  */
 
 int handle_b(unsigned int num)
