@@ -39,5 +39,6 @@ int print_di(va_list convert, int *result)
 		po = po / 10;
 		(*result) += po;
 		len--; }
+	(*result)++;
 	return (*result);
 }
