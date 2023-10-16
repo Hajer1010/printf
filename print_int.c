@@ -11,10 +11,16 @@ int print_di(va_list convert, int *result)
 {
 	int m = va_arg(convert, int);
 	int len = 0;
-	int  rep = m;
+	int rep = m;
 	int po = 1;
 	int i;
-
+	
+	if (m == 0)
+	{
+		_putchar('0');
+		(*result)++;
+		return (*result);
+	}
 	if (m < 0)
 	{
 		_putchar('-');
@@ -26,7 +32,7 @@ int print_di(va_list convert, int *result)
 		rep = rep / 10;
 		len++;
 	}
-	for ( i = 1; i < len; i++)
+	for (i = 0; i < len - 1; i++)
 	{
 		po *= 10;
 	}
@@ -36,7 +42,8 @@ int print_di(va_list convert, int *result)
 		_putchar(di + '0');
 		(*result)++;
 		m = m % po;
+		po /= 10;
 		len--;
 	}
 	return (*result);
-}
+}	
