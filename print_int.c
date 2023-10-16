@@ -6,31 +6,20 @@
  * Return: 0 (success)
  */
 
-int print_di(va_list convert, int *result)
+int print_di(int n)
 {
-	int m = va_arg(convert, int);
-	int rep = m;
-	int len = 0;
-	int po = 1;
-	int i;
+	int m = 0;
 
-	if (m == 0)
-	{	 _putchar('0');
+	if (n < 0)
+	{	 _putchar('-');
+		m++;
+		n = -n;
 	}
-	if (m < 0)
-	{	_putchar('-');
-		m = -m;  }
-	while (rep != 0)
-	{	rep = rep / 10;
-		len++; }
-	for (i = 1; i < len; i++)
-	{	po *= 10; }
-	while (len > 0)
-	{	int di = m / po;
+	if (n / 10)
+		m += print_di(n / 10);
 
-		_putchar(di + '0');
-		m = m % po;
-		po = po / 10;
-		len--; }
-	return (*result);
+	_putchar('0' + n % 10);
+	m++;
+
+	return (m);
 }
