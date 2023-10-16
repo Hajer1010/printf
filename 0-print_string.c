@@ -25,9 +25,10 @@ int _printf(const char *format, ...)
 				n++; }	else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	print_di(convert, &result);
 				result++;
-				n++; }	else if (*format == 'b')
-			{	int num = va_arg(convert, int);
-				result += handle_b(num, 2); }
+				n++; }	else if (format[n + 1] == 'b')
+			{	unsigned int num = va_arg(convert, unsigned int);
+				result += handle_b(num);
+			n++; }
 			else if (format[n + 1] == 'c')
 			{	_putchar(va_arg(convert, int));
 				result++;

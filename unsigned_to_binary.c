@@ -7,34 +7,12 @@
  * Return: count
  */
 
-int handle_b(int num, int b)
+int handle_b(unsigned int num)
 {
-	int count = 0;
-	int lead = 1;
-	int n;
-
-	if (num < 0 && b == 10)
+	if (num > 1)
 	{
-		_putchar('-');
-		count++;
-		num = -num;
+		handle_b(num / 2);
 	}
-	for (n = 31; n >= 0; n--)
-	{
-		char digit = (num >> n) && 1;
-
-		if (digit == 1)
-		{
-			lead = 0;
-		}
-		if (!lead)
-		{
-			count += _putchar(digit + '0');
-		}
-	}
-	if (count == 0)
-	{
-		count += _putchar('0');
-	}
-	return (count);
+	_putchar('0' + num % 2);
+	return (num);
 }
