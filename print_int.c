@@ -1,5 +1,5 @@
 #include "main.h"
-
+int write_number(unsigned int);
 /**
  * print_di - print numbers
  * @convert: argument
