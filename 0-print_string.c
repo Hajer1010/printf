@@ -1,26 +1,5 @@
 #include "main.h"
 /**
- * print_s - print string
- * @result: result
- * @convert: arg
- * Return: result
-*/
-int print_s(va_list convert, int *result)
-{
-	int ln = 0;
-	char *st = va_arg(convert, char *);
-
-	if (!st)
-	{
-		st = "(null)";
-	}
-	while (st[ln])
-	ln++;
-	_puts(st);
-	result += ln;
-	return (*result);
-}
-/**
  * _printf - function that prints string
  * @format: format for string
  * Return: result
@@ -44,7 +23,8 @@ int _printf(const char *format, ...)
 			{	_putchar('%');
 				result++;
 				n++; }	else if (format[n + 1] == 'd' || format[n + 1] == 'i')
-			{	print_di(convert, &result);
+			{
+				print_di(convert, &result);
 				result++;
 				n++; }	else if (format[n + 1] == 'b')
 			{	unsigned int num = va_arg(convert, unsigned int);
@@ -54,7 +34,10 @@ int _printf(const char *format, ...)
 			{	_putchar(va_arg(convert, int));
 				result++;
 				n++; }	else if (format[n + 1] == 's')
-			{	print_s(convert, &result);
+			{	char *str = va_arg(convert, char*);
+
+				write(1, str, _strlen(str));
+				result += _strlen(str);
 				n++; }
 		}	n++;
 	}	va_end(convert);
