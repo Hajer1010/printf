@@ -34,9 +34,9 @@ int _printf(const char *format, ...)
 			{	_putchar(va_arg(convert, int));
 				result++;
 				n++; }	else if (format[n + 1] == 's')
-			{	char *str = va_arg(convert, char*);
+			{	char *str = va_arg(convert, char *);
 
-				write(1, str, strlen(str))
+				_puts(str);
 				result += strlen(str);
 				n++; }
 			}	n++;
