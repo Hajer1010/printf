@@ -39,4 +39,5 @@ int _printf(const char *format, ...)
 				n++; }
 		}	n++;
 	}	va_end(convert);
+		_putchar('\n');
 		return (result); }
