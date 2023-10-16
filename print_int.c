@@ -36,6 +36,5 @@ int print_di(va_list convert, int *result)
 		m = m % po;
 		po = po / 10;
 		len--; }
-	_putchar('\n');
 	return (*result);
 }
