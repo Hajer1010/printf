@@ -26,7 +26,8 @@ int _printf(const char *format, ...)
 				n++; }
 			else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	
-				result += print_di(convert, &result);
+				print_di(convert, &result);
+				result++;
 				n++; }
 			else if (format[n + 1] == 'c')
 			{	_putchar(va_arg(convert, int));
