@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list convert;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
+		return (1);
 	va_start(convert, format);
 	while (format[n] != '\0')
 	{
@@ -21,7 +21,10 @@ int _printf(const char *format, ...)
 		{
 			if (format[n + 1] == '%')
 			{	result += _putchar('%');
-				n++; }	else if (format[n + 1] == 'd' || format[n + 1] == 'i')
+				n++; }	
+			else if (format[n + 1] == 'r')
+			{	result += _putchar('r');
+				n++; } else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{
 				result += print_di(convert, &result);
 				n++; }	else if (format[n + 1] == 'b')
@@ -37,10 +40,6 @@ int _printf(const char *format, ...)
 
 				result += _puts(str);
 				n++; }
-			else
-			{	_putchar('%');
-				_putchar(format[n]);
-				result += 2; }
 			}	n++;
 		}
 		va_end(convert);
