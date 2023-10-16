@@ -31,14 +31,13 @@ int _printf(const char *format, ...)
 
 				 result += handle_b(num);
 			n++; }	else if (format[n + 1] == 'c')
-			{	int c = (char)va_arg(convert, int);
-				_putchar(c);
+			{	_putchar(va_arg(convert, int));
 				result++;
 				n++; }	else if (format[n + 1] == 's')
 			{	char *str = va_arg(convert, char*);
 
-				_puts(str);
-				result++;
+				write(1, str, strlen(str))
+				result += strlen(str);
 				n++; }
 			}	n++;
 		}
