@@ -16,10 +16,10 @@ int print_di(va_list convert, int *result)
 	int i;
 
 	if (m == 0)
-	{	_putchar('0');
+	{	(*result) += _putchar('0');
 	}
 	if (m < 0)
-	{	_putchar('-');
+	{	(*result) += _putchar('-');
 		m = -m; }
 	while (rep != 0)
 	{	rep = rep / 10;
@@ -29,7 +29,7 @@ int print_di(va_list convert, int *result)
 	while (len > 0)
 	{	int di = m / po;
 
-		_putchar(di + '0');
+		(*result) += _putchar(di + '0');
 		m = m % po;
 		po = po / 10;
 		len--; }
