@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int result = 0, n = 0;
+	int result = 0, n = 0, i;
 	va_list convert;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -21,16 +21,18 @@ int _printf(const char *format, ...)
 		{
 			if (format[n + 1] == '%')
 			{	result += _putchar('%');
-				n++; }	
+				n++; }
 			else if (format[n + 1] == 'r')
-			{	result += _putchar('r');
+			{	char *s = va_arg(convert, char *);
+				int l = strlen(s);
+
+				for (i = l - 1; i >= 0; i--)
+				{	write(1, &s[i], 1); }
 				n++; } else if (format[n + 1] == 'd' || format[n + 1] == 'i')
-			{
-				result += print_di(convert, &result);
+			{	result += print_di(convert, &result);
 				n++; }	else if (format[n + 1] == 'b')
 			{	unsigned int num = va_arg(convert, unsigned int);
-
-				 result += handle_b(num);
+				result += handle_b(num);
 			n++; }	else if (format[n + 1] == 'c')
 			{	int c = va_arg(convert, int);
 
