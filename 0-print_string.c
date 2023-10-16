@@ -20,8 +20,7 @@ int _printf(const char *format, ...)
 		} else
 		{
 			if (format[n + 1] == '%')
-			{	_putchar('%');
-				result += 2;
+			{	result += _putchar('%');
 				n++; }	else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{
 				result += print_di(convert, &result);
@@ -38,6 +37,9 @@ int _printf(const char *format, ...)
 
 				result += _puts(str);
 				n++; }
+			else
+			{	_putchar(format[n]);
+				result += 2; }
 			}	n++;
 		}
 		va_end(convert);
