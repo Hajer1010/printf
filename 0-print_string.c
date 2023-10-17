@@ -24,11 +24,9 @@ int _printf(const char *format, ...)
 				n++; }
 			else if (format[n + 1] == 'r')
 			{	char *s = va_arg(convert, char *);
-				int l = strlen(s);
 
-				for (i = l - 1; i >= 0; i--)
-				{	write(1, &s[i], l); }
-				n++; } else if (format[n + 1] == 'd' || format[n + 1] == 'i')
+				result += rev_str(s);
+			} else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	int number = va_arg(convert, int);
 
 				result += print_di(number);
