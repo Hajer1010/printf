@@ -30,7 +30,8 @@ int _printf(const char *format, ...)
 				n++; } else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	int number = va_arg(convert, int);
 
-				result += print_di(number);
+				print_di(number);
+				result++;
 				n++; }	else if (format[n + 1] == 'b')
 			{	unsigned int num = va_arg(convert, unsigned int);
 				result += handle_b(num);
