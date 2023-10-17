@@ -23,8 +23,8 @@ int print_di(int n)
 
 	if (n < 0)
 	{	_putchar('-');
-		m++;
 		n = -n;
+		m++;
 	}
 	if (n / 10)
 		m += print_di(n / 10);
