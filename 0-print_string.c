@@ -21,8 +21,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[n + 1] == '%')
 			{	result += _putchar('%');
-				n++; }
-			else if (format[n + 1] == 'r')
+				n++; } else if (format[n + 1] == 'r')
 			{	char *s = va_arg(convert, char *);
 
 				result += rev_str(s);
@@ -33,7 +32,10 @@ int _printf(const char *format, ...)
 				n++; }	else if (format[n + 1] == 'b')
 			{	unsigned int num = va_arg(convert, unsigned int);
 				result += handle_b(num);
-			n++; }	else if (format[n + 1] == 'c')
+			n++; } else if (format[n + 1] == 'R')
+			{	char *r = va_arg(conver, char *);
+				result += print_rot(r); }
+			else if (format[n + 1] == 'c')
 			{	int c = va_arg(convert, int);
 
 				result += _putchar(c);
