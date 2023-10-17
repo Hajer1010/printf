@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int _puts(const char *st);
+int _puts(char *st);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_di(int n);
