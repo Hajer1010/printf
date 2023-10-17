@@ -4,22 +4,22 @@
  * @s: pointer to print
  * Return: m
  */
-char rot(char *s)
+char *rot(char *s)
 {
-	int x;
-	char en[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char de[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-
+	char *en = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *de = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *ptr = s;
+	
 	while (*s)
 	{
-		for (x = 0; x <= 52; x++)
-		{
-			if (*s == en[x])
+		char *f = strchr(en, *s);
+
+			if (f)
 			{
-				*s = de[x];
-				break;
+				*s = de[f - en];
+			
 			}
-		}
+		s++;
 	}
-	return (s[0]);
+	return (ptr);
 }
