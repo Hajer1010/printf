@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * rot - encode strings
- * @m: pointer to print
+ * @s: pointer to print
  * Return: m
  */
 char rot(char *s)

@@ -7,20 +7,20 @@
 int print_int(int i)
 {
 	int dl;
+
 	dl = print_di(i);
 	return (dl);
 }
 /**
  * print_di - print numbers
- * @arg: argument
- * @result: the pointer integer
+ * @n: argument
  * Return: 0 (success)
  */
 
 int print_di(int n)
 {
 	int m = 0;
-	
+
 	if (n < 0)
 	{	_putchar('-');
 		m++;
