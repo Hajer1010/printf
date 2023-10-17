@@ -8,7 +8,7 @@
 int print_di(int n)
 {
 	int m = 0;
-	unsigned int k ;
+	unsigned int k;
 
 	if (n < 0)
 	{
