@@ -1,7 +1,18 @@
 #include "main.h"
 /**
+ * print_int - print integar
+ * @i: arguments
+ * Return: dl
+ */
+int print_int(int i)
+{
+	int dl;
+	dl = print_di(i);
+	return (dl);
+}
+/**
  * print_di - print numbers
- * @convert: argument
+ * @arg: argument
  * @result: the pointer integer
  * Return: 0 (success)
  */
@@ -9,9 +20,9 @@
 int print_di(int n)
 {
 	int m = 0;
-
+	
 	if (n < 0)
-	{	 _putchar('-');
+	{	_putchar('-');
 		m++;
 		n = -n;
 	}
@@ -23,3 +34,4 @@ int print_di(int n)
 
 	return (m);
 }
+

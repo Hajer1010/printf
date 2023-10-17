@@ -12,6 +12,7 @@ int _puts(char *st);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_di(int n);
+int print_int(int i);
 int handle_b(unsigned int nu);
 int rev_str(char *str);
 char rot(char *s);
