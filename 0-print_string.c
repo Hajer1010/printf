@@ -36,13 +36,13 @@ int _printf(const char *format, ...)
 			n++; }	else if (format[n + 1] == 'c')
 			{	int c = va_arg(convert, int);
 
-				_putchar(c);
-				result++;
+				result += _putchar(c);
 				n++; }	else if (format[n + 1] == 's')
 			{	char *str = va_arg(convert, char *);
 
 				result += _puts(str);
 				n++; }
 			}	n++;
-		} va_end(convert);
+		}
+		va_end(convert);
 		return (result); }
