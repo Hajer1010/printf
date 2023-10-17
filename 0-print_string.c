@@ -19,19 +19,17 @@ int _printf(const char *format, ...)
 			result++;
 		} else
 		{
-				if (format[n + 1] == '%')
+			if (format[n + 1] == '%')
 			{	result += _putchar('%');
-				n++; } else if (format[n + 1] == 'r')
+				n++; }
+			else if (format[n + 1] == 'r')
 			{	char *s = va_arg(convert, char *);
 				int l = strlen(s);
 
 				for (i = l - 1; i >= 0; i--)
 				{	write(1, &s[i], l); }
 				n++; } else if (format[n + 1] == 'd' || format[n + 1] == 'i')
-			{	int number = va_arg(convert, int);
-
-				print_di(number);
-				result++;
+			{	result += print_di(number);
 				n++; }	else if (format[n + 1] == 'b')
 			{	unsigned int num = va_arg(convert, unsigned int);
 				result += handle_b(num);
