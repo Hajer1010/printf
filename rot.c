@@ -9,7 +9,7 @@ char *rot(char *s)
 	char *en = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *de = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *ptr = s;
-	
+
 	while (*s)
 	{
 		char *f = strchr(en, *s);
@@ -17,9 +17,8 @@ char *rot(char *s)
 			if (f)
 			{
 				*s = de[f - en];
-			
 			}
-		s++;
+			s++;
 	}
 	return (ptr);
 }

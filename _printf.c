@@ -5,8 +5,7 @@
  * Return: result
  */
 int _printf(const char *format, ...)
-{
-	int result = 0, n = 0;
+{	int result = 0, n = 0;
 	va_list convert;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -24,8 +23,8 @@ int _printf(const char *format, ...)
 				n++; } else if (format[n + 1] == 'r')
 			{	char *s = va_arg(convert, char *);
 
-				result += rev_str(s);
-			} else if (format[n + 1] == 'd' || format[n + 1] == 'i')
+				result += rev_str(s); }
+			else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	int number = va_arg(convert, int);
 
 				result += print_int(number);
@@ -46,4 +45,5 @@ int _printf(const char *format, ...)
 				n++; }
 			}	n++;
 		} va_end(convert);
-		return (result); }
+		return (result);
+}
