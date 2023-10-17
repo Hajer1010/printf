@@ -22,15 +22,14 @@ int print_di(int n)
 	int m = 0;
 
 	if (n < 0)
-	{	_putchar('-');
-		n = -n;
-		m++;
+	{	m += _putchar('-');
+		n = n * -1;
 	}
 	if (n / 10)
-		m += print_di(n / 10);
+	m += print_di(n / 10);
 
-	_putchar('0' + n % 10);
-	m++;
+	m += _putchar('0' + n % 10);
+
 
 	return (m);
 }
