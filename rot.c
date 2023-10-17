@@ -4,7 +4,7 @@
  * @m: pointer to print
  * Return: m
  */
-char *rot(char *s)
+char rot(char *s)
 {
 	int x;
 	char en[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -21,5 +21,5 @@ char *rot(char *s)
 			}
 		}
 	}
-	return (s);
+	return (s[0]);
 }

@@ -14,6 +14,6 @@ int _putchar(char c);
 int print_di(int n);
 int handle_b(unsigned int nu);
 int rev_str(char *str);
-char *rot(char *s);
+char rot(char *s);
 
 #endif
