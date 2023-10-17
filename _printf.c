@@ -42,8 +42,9 @@ int _printf(const char *format, ...)
 			{	char *str = va_arg(convert, char *);
 
 				result += _puts(str);
+				else
+					result += _puts("(null)");
 				n++; }
-			}	n++;
+		}	n++;
 		} va_end(convert);
-		return (result);
-}
+		return (result); }
