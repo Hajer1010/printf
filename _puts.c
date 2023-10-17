@@ -14,4 +14,3 @@ int _puts(char *st)
 		x += _putchar(*st++);
 	return (x);
 }
-

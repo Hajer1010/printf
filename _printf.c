@@ -45,5 +45,4 @@ int _printf(const char *format, ...)
 				n++; }
 		}	n++;
 		} va_end(convert);
-		return (result);
-}
+		return (result); }
