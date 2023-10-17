@@ -4,24 +4,16 @@
  * @st: string
  * Return: 0
  */
-int _puts(char *st)
+int _puts(const char *st)
 {
 	int x = 0;
-	char *p = "(null)";
 
-	if (!st)
+	while (str[x] != '\0')
 	{
-		while (p[x] != '\0')
-		{
-			_putchar(p[x]);
-			x++;
-		}
-		return (6);
-	}
-	while (st[x] != '\0')
-	{
-		_putchar(st[x]);
+		write(1, &str[x], 1);
 		x++;
 	}
-	return ((int)(x));
+	write(1, "\n", 1);
+	return (x + 1);
 }
+
