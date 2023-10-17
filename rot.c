@@ -1,32 +1,25 @@
 #include "main.h"
 /**
- * print_rot - encode strings
- * @str: pointer to print
- * Return: count
+ * rot - encode strings
+ * @m: pointer to print
+ * Return: m
  */
-int print_rot(char *str)
+char *rot(char *s)
 {
-	int d = 0;
-	int count = 0;
+	int x;
+	char en[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char de[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	while (str[d] != '\0')
+	while (*s)
 	{
-		if ((str[d] >= 'a' && str[d] < 'm') || (str[d] >= 'A' && str[d] <= 'H'))
+		for (x = 0; x <= 52; x++)
 		{
-			_putchar(str[d] + 13);
-			count++;
+			if (*s == en[x])
+			{
+				*s = de[x];
+				break;
+			}
 		}
-		else if ((str[d] >= 'n' && str[d] <= 'z') || (str[d] >= 'N' && str[d] <= 'Z'))
-		{
-			_putchar(str[d] - 13);
-			count++;
-		}
-		else 
-		{
-			_putchar(str[d]);
-			count++;
-		}
-		d++;
 	}
-	return (count);
+	return (s);
 }
