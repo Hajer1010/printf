@@ -4,18 +4,17 @@
  * @s: pointer to print
  * Return: m
  */
-char *rot(char *s)
+char rot(char *s)
 {
-	char *en = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char *de = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char ptr = *s;
-	char r = ptr;
 	int c = 0;
 
 	if (s == NULL)
 		return (_puts("(null)"));
 	while (*s)
 	{
+		char ptr = *s;
+		char r = ptr;
+
 		if (ptr >= 'A' && ptr <= 'Z')
 		{
 			r = 'A' + (ptr - 'A' + 13) % 26;
