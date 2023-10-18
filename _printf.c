@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 				result += handle_b(num);
 			n++; } else if (format[n + 1] == 'R')
 			{	char *r = va_arg(convert, char *);
-				result += (size_t)rot(r); }
+				result += rot(r), n++; }
 			else if (format[n + 1] == 'c')
 			{	int c = va_arg(convert, int);
 

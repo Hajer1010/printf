@@ -8,17 +8,25 @@ char *rot(char *s)
 {
 	char *en = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *de = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char *ptr = s;
+	char ptr = *s;
+	char r = ptr;
+	int c = 0;
 
+	if (s == NULL)
+		return (_puts("(null)"));
 	while (*s)
 	{
-		char *f = strchr(en, *s);
-
-			if (f)
-			{
-				*s = de[f - en];
-			}
-			s++;
+		if (ptr >= 'A' && ptr <= 'Z')
+		{
+			r = 'A' + (ptr - 'A' + 13) % 26;
+		}
+		else if (ptr >= 'a' && c <= 'z')
+		{
+			r = 'a' + (ptr - 'a' + 13) % 26;
+		}
+		_putchar(r);
+		c++;
+		s++;
 	}
-	return (ptr);
+	return (c);
 }
