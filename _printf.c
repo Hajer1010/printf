@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			{	char *r = va_arg(convert, char *);
 				result += rot(r), n++; }
 			else if (format[n + 1] == 'c')
-			{	result += _putchar(format[n + 1]);
+			{	result += _putchar(va_arg(convert, int));
 				n++; } else if (format[n + 1] == 's')
 			{	char *str = va_arg(convert, char *);
 
