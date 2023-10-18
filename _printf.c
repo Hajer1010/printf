@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 				n++; } else if (format[n + 1] == 'r')
 			{	char *s = va_arg(convert, char *);
 
-				result += rev_str(s); }
+				result += rev_str(s), n++; }
 			else if (format[n + 1] == 'd' || format[n + 1] == 'i')
 			{	int number = va_arg(convert, int);
 
