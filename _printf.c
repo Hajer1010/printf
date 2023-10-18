@@ -35,10 +35,8 @@ int _printf(const char *format, ...)
 			{	char *r = va_arg(convert, char *);
 				result += rot(r), n++; }
 			else if (format[n + 1] == 'c')
-			{	int c = va_arg(convert, int);
-
-				_putchar(c);
-				result++, n++; } else if (format[n + 1] == 's')
+			{	result += _putchar(format[n + 1]);
+				n++; } else if (format[n + 1] == 's')
 			{	char *str = va_arg(convert, char *);
 
 				result += _puts(str);
